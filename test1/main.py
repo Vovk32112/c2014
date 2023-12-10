@@ -1,18 +1,6 @@
+import numexpr
 
-first = float(input("Введите первое число: "))
-second = float(input("Введите второе число число: "))
-
-operation = input("Что сделать(+, -, :, *): ")
-result = 0
-
-if operation == "-":
-    result = first - second
-elif operation == "+":
-    result = first + second
-elif operation == "*":
-    result = first * second
-elif operation == ":":
-    result = first / second
-
+expr = input("Введіть приклад: ")
+result = numexpr.evaluate(expr)
 
 print(f"Результат: {result}")
