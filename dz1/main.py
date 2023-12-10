@@ -1,35 +1,35 @@
 import random
-class Student:
+class Cat:
     def __init__(self,name):
         self.name=name
         self.gladness=50
-        self.progress=0
+        self.famine=0
         self.alive=True
 
     def to_study(self):
-        print("time to study")
-        self.progress+=0.12
+        print("game")
+        self.famine+=0.12
         self.gladness-=3
     def to_sleep(self):
         print(" I will sleep ")
-        self.progress+=3
+        self.famine+=3
     def to_chill(self):
         print("Rest time")
-        self.progress-=0.1
+        self.famine-=0.1
         self.gladness+=5
     def is_alive(self):
-        if self.progress<-0.5:
+        if self.famine<-0.5:
             print("Cast out")
             self.alive=False
         elif self.gladness<=0:
             print("Depresion..")
             self.alive=False
-        elif self.progress>5:
+        elif self.famine>5:
             print("Passed externaly")
             self.alive=False
     def end_of_day(self):
         print(f"Gladness - {self.gladness}")
-        print(f"Progress - {round(self.progress,2)}")
+        print(f"famine - {round(self.famine,2)}")
 
     def live(self,day):
         day="Day" + str(day) + "of" + self.name + "life"
@@ -43,7 +43,7 @@ class Student:
             self.to_chill()
         self.end_of_day()
         self.is_alive()
-nick=Student(name="Nick")
+nick=Cat(name="Nick")
 for day in range(365):
     if nick.alive==False:
         break
