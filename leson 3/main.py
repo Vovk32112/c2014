@@ -66,6 +66,7 @@ class Human:
             self.satiety+=2
             self.money-=15
     def chill(self):
+        self.money-=50
         self.gladness+=10
         self.home.mess+=5
     def clean_home(self):
@@ -184,5 +185,5 @@ class Job:
 
 nick=Human(name="Nick")
 for day in range(1,8):
-    if nick.live(day)==False
+    if nick.live(day)==False:
         break
