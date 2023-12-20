@@ -82,10 +82,11 @@ class Person:
             self.vehicle.fuel += 100 if manage == "fuel" else 0
 
 brand_of_car = {
-    "BMW": {"fuel": 100, "strength": 100, "consumption": 12},
-    "Toyota": {"fuel": 50, "strength": 60, "consumption": 10},
-    "Volvo": {"fuel": 70, "strength": 120, "consumption": 8},
-    "Ferrari": {"fuel": 80, "strength": 150, "consumption": 14}}
+    "Honda": {"fuel": 90, "strength": 80, "consumption": 11},
+    "Ford": {"fuel": 60, "strength": 70, "consumption": 9},
+    "Chevrolet": {"fuel": 75, "strength": 100, "consumption": 10},
+    "Tesla": {"fuel": 0, "strength": 120, "consumption": 5}
+}
 
 person = Person(name="John")
 for day in range(1, 8):
