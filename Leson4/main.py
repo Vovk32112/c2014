@@ -21,5 +21,5 @@ def check_money(amount_of_money, limit_Vaule):
         return " Грошей достатньо"
     else:
         raise PurchaseMonitorError(amount_of_money)
-money=200
+money=100
 check_money(money, 150)
