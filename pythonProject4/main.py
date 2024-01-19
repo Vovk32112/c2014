@@ -57,7 +57,7 @@ class Artur:
 
     def eat(self):
         print("Я поїв")
-        self.hunger += 10
+        self.hunger += 25
 
     def set_goal(self):
         print("Піду позаймаюсь")
@@ -83,14 +83,27 @@ class Artur:
 
     def cat_treat(self):
         print("Мені треба відвезти кота до ветеринара")
-        if self.money >= 30:
+        if self.money <= 30:
             print("Мені не вистачає на лікування кота. Продам свою відеогру")
             self.home.video_games -= 1
             self.money += 15
             self.happiness -= 20
-        self.money -= 30
-        self.happiness -= 20
-        self.pet.cat_happiness -= 10
+            if self.money >= 30:
+                self.money -= 30
+                self.happiness -= 20
+                self.pet.cat_happiness -= 20
+                print("Я вилікував Мурзика")
+            else:
+                self.home.video_games -= 1
+                self.money += 15
+        if self.money >= 30:
+            self.money -= 30
+            self.happiness -= 20
+            self.pet.cat_happiness -= 20
+            print("Я вилікував Мурзика")
+        print()
+        print(f"Video Games - {self.home.video_games}")
+
     def days_indexes(self, day):
         day_info = f"Today is the {day}th day of {self.name}'s life"
         print(f"{day_info:=^50}\n")
@@ -119,19 +132,19 @@ class Artur:
             self.set_goal()
         health_indexes = "health indexes"
         print(f"{health_indexes:^50}\n")
-        if self.hunger >= 5:
+        if self.hunger <= 50:
             print("Треба поїсти")
             self.eat()
-        if self.hunger <= 5:
+        if self.hunger <= 50:
             print("Я не голодний")
         home_indexes = "Home indexes"
         print(f"{home_indexes:^50}\n")
         print(f"Video Games - {self.home.video_games}")
         print(f"Room Mess - {self.home.mess}")
-        if self.home.mess <= 30:
+        if self.home.mess >= 30:
             print("Треба поприбирати")
             self.Clean_up()
-        if self.home.mess >= 15:
+        if self.home.mess <= 15:
             print("У моїй кімнаті прибрано")
         cat_indexes = "Cat indexes"
         print(f"{cat_indexes:^50}\n")
@@ -140,19 +153,15 @@ class Artur:
         print(f"cat_hunger - {self.pet.cat_hunger}")
         if cat_dice == 1:
             self.cat_eat()
-        if cat_dice == 2:
+        elif cat_dice == 2:
             self.cat_play()
-        if cat_dice == 3:
+        elif cat_dice == 3:
             self.cat_eat_chocolate()
         cat_health = "cat_health"
         print(f"{cat_health:^50}\n")
         print(f"cat_health - {self.pet.cat_health}")
-        if self.pet.cat_health == 10:
+        if self.pet.cat_health <= 11:
             self.cat_treat()
-
-
-
-
 
 
     def live(self, day):
@@ -165,7 +174,6 @@ class Artur:
         action = random.choice(["грати_у_відеоігри", "істи_чіпси", "робити_домашню_роботу", "іти_гуляти", "гупувати_відеоігри"])
         if hasattr(self, action):
             getattr(self, action)()
-
         return True
 
 
