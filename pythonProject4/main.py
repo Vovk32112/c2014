@@ -171,7 +171,7 @@ class Artur:
             self.get_cat()
 
         self.days_indexes(day)
-        action = random.choice(["грати_у_відеоігри", "істи_чіпси", "робити_домашню_роботу", "іти_гуляти", "гупувати_відеоігри"])
+        action = random.choice(["грати_у_відеоігри", "робити_домашню_роботу", "іти_гуляти", "гупувати_відеоігри"])
         if hasattr(self, action):
             getattr(self, action)()
         return True
